@@ -1,2 +1,61 @@
-# node-process-stats
-NodeJS library for collecting processor and memory stats for monitoring
+# NodeJS Process Stats
+
+NodeJS library for collecting processor and memory stats for monitoring.
+
+## Usage
+
+```javascript
+let previousData = stats.get();
+
+setInterval(function () {
+  const data = stats.get(previousData);
+
+  // Use the data as needed (see docs below)
+
+  previousData = data;
+}, 60000);
+```
+
+## Collected data
+
+Data is organised for capturing into health metrics, so under each type there are `cpu` and `memory` stats all expressed as fractions of a `total` value.
+
+Every type of `cpu` has `busy` and `total`, and every type of `memory` has `used` and `total`.
+
+- `os` (operating system)
+  - `uptime` (seconds)
+  - `load` (three element array of floats)
+  - `cpu`
+    - `user` (fraction of usable processor time spent in user mode code)
+    - `nice` (fraction of usable processor time spent in nice user mode code)
+    - `sys` (fraction of usable processor time spent in kernel mode code)
+    - `irq` (fraction of usable processor time spent in interrupt request handling code)
+    - `busy` (fraction of usable processor time spent running code - sum of values above)
+    - `idle` (fraction of usable processor time spent idle - opposite of `busy`)
+    - `total` (usable processor time in logical cores)
+  - `memory`
+    - `used` (fraction of usable memory being used)
+    - `free` (fraction of usable memory not being used - opposite of `used`)
+    - `total` (usable memory in bytes)
+- `container` (current cgroup-based container)
+  - `cpu`
+    - `busy` (fraction of usable processor time spent running code - sum of values above)
+    - `idle` (fraction of usable processor time spent idle - opposite of `busy`)
+    - `total` (usable processor time in logical cores)
+  - `memory`
+    - `used` (fraction of usable memory being used)
+    - `free` (fraction of usable memory not being used - opposite of `used`)
+    - `total` (usable memory in bytes)
+- `process` (current process)
+  - `cpu`
+    - `user` (fraction of usable processor time spent in user mode code)
+    - `system` (fraction of usable processor time spent in kernel mode code)
+    - `busy` (fraction of usable processor time spent running code - sum of values above)
+    - `total` (usable processor time in logical cores)
+  - `memory`
+    - `external` (fraction of usable memory used by JavaScript runtime)
+    - `heapTotal` (fraction of usable memory used by JavaScript runtime)
+    - `heapUsed` (fraction of usable memory used by JavaScript runtime)
+    - `rss` (fraction of usable memory being used)
+    - `used` (fraction of usable memory being used - same as `rss`)
+    - `total` (usable memory in bytes)

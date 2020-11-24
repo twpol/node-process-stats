@@ -1,0 +1,22 @@
+{
+  "name": "process-stats",
+  "version": "1.0.0",
+  "description": "NodeJS library for collecting processor and memory stats for monitoring",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twpol/node-process-stats.git"
+  },
+  "author": "James Ross",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/twpol/node-process-stats/issues"
+  },
+  "homepage": "https://github.com/twpol/node-process-stats#readme",
+  "devDependencies": {
+    "sprintf": "^0.1.5"
+  }
+}
