@@ -5,6 +5,8 @@ NodeJS library for collecting processor and memory stats for monitoring.
 ## Usage
 
 ```javascript
+const stats = require("@twpol/process-stats");
+
 let previousData = stats.get();
 
 setInterval(function () {

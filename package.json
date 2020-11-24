@@ -1,5 +1,5 @@
 {
-  "name": "process-stats",
+  "name": "@twpol/process-stats",
   "version": "1.0.0",
   "description": "NodeJS library for collecting processor and memory stats for monitoring",
   "main": "index.js",
@@ -16,7 +16,12 @@
     "url": "https://github.com/twpol/node-process-stats/issues"
   },
   "homepage": "https://github.com/twpol/node-process-stats#readme",
+  "dependencies": {},
   "devDependencies": {
     "sprintf": "^0.1.5"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   }
 }
