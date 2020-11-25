@@ -20,9 +20,9 @@ setInterval(function () {
 
 ## Collected data
 
-Data is organised for capturing into health metrics, so under each type there are `cpu` and `memory` stats all expressed as fractions of a `total` value.
+Data is organised for capturing into health metrics, so under each type there are `cpu` and `memory` stats, all expressed as fractions of the `total` value.
 
-Every type of `cpu` has `busy` and `total`, and every type of `memory` has `used` and `total`.
+Types always have `cpu.total` and `memory.total`. Those which measure usage also always have `cpu.busy` and `memory.used`.
 
 - `os` (operating system)
   - `uptime` (seconds)
@@ -38,6 +38,16 @@ Every type of `cpu` has `busy` and `total`, and every type of `memory` has `used
   - `memory`
     - `used` (fraction of usable memory being used)
     - `free` (fraction of usable memory not being used - opposite of `used`)
+    - `total` (usable memory in bytes)
+- `awsTask` (current AWS EC2/Fargate task)
+  - `cpu`
+    - `total` (usable processor time in logical cores)
+  - `memory`
+    - `total` (usable memory in bytes)
+- `awsContainer` (current AWS EC2/Fargate container)
+  - `cpu`
+    - `total` (usable processor time in logical cores)
+  - `memory`
     - `total` (usable memory in bytes)
 - `container` (current cgroup-based container)
   - `cpu`
