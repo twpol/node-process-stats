@@ -40,11 +40,13 @@ Types always have `cpu.total` and `memory.total`. Those which measure usage also
     - `free` (fraction of usable memory not being used - opposite of `used`)
     - `total` (usable memory in bytes)
 - `awsTask` (current AWS EC2/Fargate task)
+  - `metadata` (complete AWS EC2/Fargate V4 task metadata)
   - `cpu`
     - `total` (usable processor time in logical cores)
   - `memory`
     - `total` (usable memory in bytes)
 - `awsContainer` (current AWS EC2/Fargate container)
+  - `metadata` (complete AWS EC2/Fargate V4 container metadata)
   - `cpu`
     - `total` (usable processor time in logical cores)
   - `memory`
